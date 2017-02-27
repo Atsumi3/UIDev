@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UIDev</string>
+
+    <string name="MainMenuItemPorterDuff">PorterDuffのテスト</string>
+</resources>
