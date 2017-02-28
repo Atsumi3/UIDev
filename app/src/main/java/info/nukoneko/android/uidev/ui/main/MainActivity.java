@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 
 import info.nukoneko.android.uidev.R;
 import info.nukoneko.android.uidev.databinding.ActivityMainBinding;
-import info.nukoneko.android.uidev.ui.NKUIPorterDuffActivity;
+import info.nukoneko.android.uidev.ui.porter_duff.NKUIPorterDuffActivity;
 
 public final class MainActivity extends AppCompatActivity implements MainMenuViewAdapter.Listener {
     @Override
@@ -20,6 +21,7 @@ public final class MainActivity extends AppCompatActivity implements MainMenuVie
             R.string.MainMenuItemPorterDuff
         }));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 
     @Override

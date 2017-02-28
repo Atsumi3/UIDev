@@ -67,6 +67,8 @@ public final class NKPorterDuffView extends View {
 
         if (porterDuff != null) {
             paint.setXfermode(new PorterDuffXfermode(porterDuff));
+        } else {
+            paint.setXfermode(null);
         }
 
         paint.setColor(getColorCross());

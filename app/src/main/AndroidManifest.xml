@@ -13,7 +13,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.NKUIPorterDuffActivity" />
+        <activity android:name=".ui.porter_duff.NKUIPorterDuffActivity" />
     </application>
 
 </manifest>

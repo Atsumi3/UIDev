@@ -1,4 +1,4 @@
-package info.nukoneko.android.uidev.ui;
+package info.nukoneko.android.uidev.ui.porter_duff;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,7 +40,7 @@ public final class NKUIPorterDuffActivity extends AppCompatActivity implements N
 
     @Override
     public int getColorBackGround() {
-        return Color.GRAY;
+        return Color.argb(255, 230, 230, 230);
     }
 
     @Override
@@ -65,6 +66,7 @@ public final class NKUIPorterDuffActivity extends AppCompatActivity implements N
         public ViewAdapter(@NonNull Context context) {
             this.context = context;
             this.data = new ArrayList<PorterDuff.Mode>(){{
+                add(null);
                 for (PorterDuff.Mode mode : PorterDuff.Mode.values()) {
                     add(mode);
                 }
@@ -79,8 +81,13 @@ public final class NKUIPorterDuffActivity extends AppCompatActivity implements N
         @Override
         public void onBindViewHolder(ViewAdapter.ViewHolder holder, int position) {
             final PorterDuff.Mode mode = data.get(position);
-            holder.getBinding().text.setText(mode.name());
-            holder.getBinding().porterDuffView.setPorterDuff(mode);
+            if (mode == null) {
+                holder.getBinding().text.setText("指定なし");
+                holder.getBinding().porterDuffView.setPorterDuff(null);
+            } else {
+                holder.getBinding().text.setText(mode.name());
+                holder.getBinding().porterDuffView.setPorterDuff(mode);
+            }
         }
 
         @Override
